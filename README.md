@@ -18,7 +18,7 @@ The app is mainly about an e-commerce website for cellphones with 3 consecutive 
 - build user interface including homepage, login page and admin page
   - Home Page: on clicking Login redirect to Login Page
   - Login Page:
-    - alert appears if wrong email or password. Otherwise, redirect to Admin Page. 
+    - alert appears if wrong email or password. Otherwise, redirect to Admin Page.
     - tick Remember me helps to auto fill email for another login in the same session
   - Admin Page:
     - add Log out feature
@@ -41,7 +41,12 @@ The app is mainly about an e-commerce website for cellphones with 3 consecutive 
 
 _(to be updated)_
 
+The demo video can be seen via: https://www.youtube.com/watch?v=q5fqIWtCieg
 
+|  <p align="center">Home Page</p> |    ![](res/image/phu_homepage.png)   |
+| :------------- | :------------- |
+|   <p align="center">**Login Page**</p>      | ![](res/image/phu_loginpage.png)     |  
+| <p align="center">**Admin Page**</p> | ![](res/image/phu_adminpage.png)       |  <p align="center">**Login Page**</p> |
 
 
 ## Further enhancement
