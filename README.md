@@ -10,6 +10,11 @@
 ## About the project
 The app is mainly about an e-commerce website for cellphones. To achieve the goal, it is developed with Java, JSP and Servlet, JDBC for MySQL, JSTL as well as other supports from HTLM forms, and Java API in session management.
 
+There is 2 versions of the project: `PRJ321x_Project_3_manualConfig.zip` for manual configuration in xml file and traditional Servlet API; `PRJ321x_Project_3_SpringBoot.zip` using Spring Boot for autoconfiguration and annotation-based development.
+
+
+
+
 - **Keyword**: _Java, web, jsp, servlet, web.xml, Java beans, session management, JDBC, MySQL_.
 
 ## Functional descriptions
@@ -60,6 +65,8 @@ The app is mainly about an e-commerce website for cellphones with some below pag
 |   <p align="center">Home Page</p> |
 
 ## Demo
+
+_**Updated:**_ The project is rebuilt with Spring Boot using **JPA** for database CRUD and object mapping, **Spring form and validation** (both validation annotation and validator interface) to check user input as well as data binding, **annotation-based** controller  (archived in `PRJ321x_Project_3_SpringBoot.zip`).
 
 The demo video can be seen via: https://www.youtube.com/watch?v=hh8Dcpho_u8
 
