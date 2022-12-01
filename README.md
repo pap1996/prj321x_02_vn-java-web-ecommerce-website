@@ -15,7 +15,7 @@ There is 2 versions of the project: `PRJ321x_Project_3_manualConfig.zip` for man
 
 
 
-- **Keyword**: _Java, web, jsp, servlet, web.xml, Java beans, session management, JDBC, MySQL_.
+- **Keyword**: _Java, web, jsp, servlet, web.xml, Java beans, session management, JDBC, MySQL, Spring, annotation-based controller, JPA_.
 
 ## Functional descriptions
 
@@ -81,6 +81,6 @@ _**NOTES:**_ The database is designed in MySQL as per the model by file `Shoppin
 ## Further enhancement
 - Adjust user interface for better interaction
 - Modify session management by using both cookies and url rewriting
-- Convert all Java code in JSP into JSTL + EL
+- ~~Convert all Java code in JSP into JSTL + EL~~ → updated in `PRJ321x_Project_3_SpringBoot`
 - Add some extra features such as order history, order management
-- Use Spring framework to develop the app
+- ~~Use Spring framework to develop the app~~ → Updated with `PRJ321x_Project_3_SpringBoot`, but need to apply Spring Security for log-in and register function
