@@ -1,0 +1,22 @@
+CREATE TABLE products (
+  product_id int NOT NULL AUTO_INCREMENT,
+  product_name varchar(100) NOT NULL,
+  product_des varchar(255) DEFAULT NULL,
+  product_price double NOT NULL,
+  product_img_source varchar(255) DEFAULT NULL,
+  product_type varchar(100) DEFAULT NULL,
+  product_brand varchar(100) DEFAULT NULL,
+  PRIMARY KEY (product_id)
+);
+
+
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('1', 'iPhone 11 Pro Max 512GB', 'Màn hình: 6.5\", Super Retina XDR\r HĐH: iOS 13\r CPU: Apple A13 Bionic 6 nhân\r RAM: 4 GB, ROM: 512 GB\r Camera: 3 camera 12 MP, Selfie: 12 MP', '43.99', 'https://cdn.tgdd.vn/Products/Images/42/210654/iphone-11-pro-max-512gb-gold-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('2', 'iPhone 11 Pro Max 256GB', 'Màn hình: 6.5\", Super Retina XDR\r HĐH: iOS 13\r CPU: Apple A13 Bionic 6 nhân\r RAM: 4 GB, ROM: 512 GB\r Camera: 3 camera 12 MP, Selfie: 12 MP', '37.99', 'https://cdn.tgdd.vn/Products/Images/42/210653/iphone-11-pro-max-256gb-black-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('3', 'iPhone 7 32GB', 'Màn hình: 4.7\", Retina HD\r HĐH: iOS 12\r CPU: Apple A10 Fusion 4 nhân 64-bit\r RAM: 2 GB, ROM: 32 GB\r Camera: 12 MP, Selfie: 7 MP', '10.49', 'https://cdn.tgdd.vn/Products/Images/42/74110/iphone-7-gold-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('4', 'iPhone X 256GB', 'Màn hình: 5.8\", Super Retina\r HĐH: iOS 12\r CPU: Apple A11 Bionic 6 nhân\r RAM: 3 GB, ROM: 256 GB\r Camera: Chính 12 MP & Phụ 12 MP, Selfie: 7 MP', '27.99', 'https://cdn.tgdd.vn/Products/Images/42/190324/iphone-xs-256gb-white-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('5', 'iPhone Xs 64GB', 'Màn hình: 5.8\", Super Retina\r HĐH: iOS 12\r CPU: Apple A12 Bionic 6 nhân\r RAM: 4 GB, ROM: 64 GB\r Camera: Chính 12 MP & Phụ 12 MP, Selfie: 7 MP', '24.99', 'https://cdn.tgdd.vn/Products/Images/42/190321/iphone-xs-max-gold-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('6', 'iPhone Xr 128GB', 'Màn hình: 6.1\", Liquid Retina\r HĐH: iOS 12\r CPU: Apple A12 Bionic 6 nhân\r RAM: 3 GB, ROM: 128 GB\r Camera: 12 MP, Selfie: 7 MP', '17.99', 'https://cdn.tgdd.vn/Products/Images/42/191483/iphone-xr-128gb-red-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('7', 'iPhone Xr 128GB', 'Màn hình: 6.1\", Liquid Retina\r HĐH: iOS 12\r CPU: Apple A12 Bionic 6 nhân\r RAM: 3 GB, ROM: 128 GB\r Camera: 12 MP, Selfie: 7 MP', '17.99', 'https://cdn.tgdd.vn/Products/Images/42/191483/iphone-xr-128gb-red-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('8', 'iPhone 8 Plus 64GB', 'Màn hình: 5.5\", Retina HD\r HĐH: iOS 12\r CPU: Apple A11 Bionic 6 nhân\r RAM: 3 GB, ROM: 64 GB\r Camera: Chính 12 MP & Phụ 12 MP, Selfie: 7 MP', '16.59', 'https://cdn.tgdd.vn/Products/Images/42/114110/iphone-8-plus-hh-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('9', 'iPhone 7 Plus 32GB', 'Màn hình: 5.5\", Retina HD\r HĐH: iOS 12\r CPU: Apple A10 Fusion 4 nhân 64-bit\r RAM: 3 GB, ROM: 32 GB\r Camera: Chính 12 MP & Phụ 12 MP, Selfie: 7 MP', '12.49', 'https://cdn.tgdd.vn/Products/Images/42/78124/iphone-7-plus-32gb-gold-600x600.jpg', 'cellphone', 'apple');
+INSERT INTO products (product_id, product_name, product_des, product_price, product_img_source, product_type, product_brand) VALUES ('10', 'iPhone 7 32GB', 'Màn hình: 4.7\", Retina HD\r HĐH: iOS 12\r CPU: Apple A10 Fusion 4 nhân 64-bit\r RAM: 2 GB, ROM: 32 GB\r Camera: 12 MP, Selfie: 7 MP', '10.49', 'https://cdn.tgdd.vn/Products/Images/42/74110/iphone-7-gold-600x600.jpg', 'cellphone', 'apple');
