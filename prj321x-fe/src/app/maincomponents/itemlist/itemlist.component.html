@@ -1,0 +1,62 @@
+<div class="container">
+
+    <!-- paginator -->
+    <div *ngIf="totalRecords > 0"
+         class="flex justify-content-center">
+        <p-paginator (onPageChange)="onPageChange($event)"
+                     [first]="first"
+                     [rows]="rows"
+                     [totalRecords]="totalRecords"
+                     [rowsPerPageOptions]="[5, 10, 20, 30]"></p-paginator>
+    </div>
+
+    <!-- Card -->
+    <!-- <div *ngIf="totalRecords ===0"
+         class="text-3xl py-1"> No data found! </div> -->
+
+
+
+
+    <!-- p-dataView support paginator but let's try manual and pagination from server-->
+
+    <div class="card">
+        <p-dataView #dv
+                    [value]="products"
+                    [layout]="layout">
+
+            <ng-template let-product
+                         pTemplate="gridItem">
+                <div class="col-12 sm:col-6 lg:col-12 xl:col-3 p-1">
+                    <div class="p-3 border-1 surface-border surface-card border-round">
+
+                        <div class="flex flex-column align-items-center gap-1 py-1">
+                            <img class="w-9"
+                                 [src]="product.productImgSource"
+                                 [alt]="product.productName" />
+                            <div class="text-xl align-self-start font-bold">{{ product.productName }}</div>
+                            <p-tag [ngClass]="'align-self-start'"
+                                   [value]="product.productType"></p-tag>
+
+                            <!-- <p-rating [ngModel]="product.rating"
+                                      [readonly]="true"
+                                      [cancel]="false"></p-rating> -->
+                        </div>
+                        <div class="flex flex-wrap align-items-center justify-content-between">
+                            <div class="flex gap-2 align-items-center">
+                                <i class="pi pi-tag"></i>
+                                <span class="text-xl font-semibold">{{ '$' + product.productPrice }}</span>
+                            </div>
+                            <!-- <span class="text-2xl font-semibold">{{ '$' + product.price }}</span> -->
+                            <button pButton
+                                    icon="pi pi-shopping-cart"
+                                    class="p-button-rounded p-button-outlined"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+
+
+
+</div>

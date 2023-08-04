@@ -1,0 +1,6 @@
+{
+  "editor.suggestOnTriggerCharacters": true,
+  "typescript.suggest.paths": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "html.format.wrapAttributes": "force-aligned"
+}

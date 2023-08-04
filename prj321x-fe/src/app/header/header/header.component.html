@@ -1,0 +1,30 @@
+<p-menubar [model]="headerItems">
+    <ng-template pTemplate="start">
+
+        <h3 class="page-icon custom-margin">
+            PRJ321x
+        </h3>
+    </ng-template>
+
+
+    <div>
+        <p-dropdown [options]="categories"
+                    [(ngModel)]="selectedCategory"
+                    placeholder="Categories"
+                    [ngClass]="'custom-margin'"></p-dropdown>
+
+        <input type="text"
+               pInputText
+               [(ngModel)]="searchKeyword"
+               [ngClass]="'custom-margin'" />
+
+
+        <p-button icon="pi pi-search"></p-button>
+    </div>
+
+
+
+
+
+
+</p-menubar>

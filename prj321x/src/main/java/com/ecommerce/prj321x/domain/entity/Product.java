@@ -1,6 +1,9 @@
 package com.ecommerce.prj321x.domain.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +13,10 @@ import java.math.BigDecimal;
 
 @Entity
 @Data
+@Builder
 @Table(name = "products")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
