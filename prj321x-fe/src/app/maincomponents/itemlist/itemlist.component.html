@@ -16,7 +16,6 @@
 
 
 
-
     <!-- p-dataView support paginator but let's try manual and pagination from server-->
 
     <div class="card">
@@ -26,7 +25,8 @@
 
             <ng-template let-product
                          pTemplate="gridItem">
-                <div class="col-12 sm:col-6 lg:col-12 xl:col-3 p-1">
+                <div class="col-12 sm:col-6 lg:col-12 xl:col-3 p-1"
+                     [routerLink]="['/product', product.productId]">
                     <div class="p-3 border-1 surface-border surface-card border-round">
 
                         <div class="flex flex-column align-items-center gap-1 py-1">

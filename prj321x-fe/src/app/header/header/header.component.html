@@ -11,7 +11,8 @@
         <p-dropdown [options]="categories"
                     [(ngModel)]="selectedCategory"
                     placeholder="Categories"
-                    [ngClass]="'custom-margin'"></p-dropdown>
+                    [ngClass]="'custom-margin'"
+                    (onChange)="onChange($event)"></p-dropdown>
 
         <input type="text"
                pInputText
@@ -19,7 +20,20 @@
                [ngClass]="'custom-margin'" />
 
 
-        <p-button icon="pi pi-search"></p-button>
+        <p-button icon="pi pi-search"
+                  ngClass="custom-margin"
+                  (onClick)="onSearch($event)"></p-button>
+
+
+
+        <p-button styleClass="p-button-outlined">
+            <i class="pi pi-shopping-cart text-xl"
+               pBadge
+               value="{{cartQuantity}}"></i>
+        </p-button>
+
+
+
     </div>
 
 

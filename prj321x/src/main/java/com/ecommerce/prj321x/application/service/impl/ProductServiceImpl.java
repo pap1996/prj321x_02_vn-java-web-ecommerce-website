@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
     @Override
-    public ProductDto getProduct(int page, int rows, String category, String searchTerm) {
+    public ProductDto getProductList(int page, int rows, String category, String searchTerm) {
 
         ProductDto productDto = ProductDto.builder().build();
         Pageable pageable = PageRequest.of(page, rows);
@@ -26,5 +26,10 @@ public class ProductServiceImpl implements ProductService {
         productDto.setProductList(result.getContent());
         productDto.setTotalRecords(result.getTotalElements());
         return  productDto;
+    }
+
+    @Override
+    public Product getProduct(Long productId) {
+        return productRepository.findById(productId).orElseThrow();
     }
 }

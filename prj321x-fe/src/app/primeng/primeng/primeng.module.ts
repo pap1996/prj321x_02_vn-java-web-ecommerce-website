@@ -10,6 +10,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
+import { FieldsetModule } from 'primeng/fieldset';
+import { TabViewModule } from 'primeng/tabview';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [],
@@ -25,6 +28,9 @@ import { TagModule } from 'primeng/tag';
     DataViewModule,
     RatingModule,
     TagModule,
+    FieldsetModule,
+    TabViewModule,
+    BadgeModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +44,9 @@ import { TagModule } from 'primeng/tag';
     DataViewModule,
     RatingModule,
     TagModule,
+    FieldsetModule,
+    TabViewModule,
+    BadgeModule,
   ],
 })
 export class PrimengModule {}

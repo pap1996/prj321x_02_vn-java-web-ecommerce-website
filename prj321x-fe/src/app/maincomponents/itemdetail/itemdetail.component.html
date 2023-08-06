@@ -1,0 +1,44 @@
+<p-fieldset *ngIf="selectProduct | async as selectProduct"
+            ngClass="m-5"
+            legend="{{ selectProduct.productName}}"
+            [toggleable]="false">
+
+    <div class="flex flex-row">
+        <div class="">
+            <img class="w-9"
+                 [src]="selectProduct.productImgSource"
+                 [alt]="selectProduct.productName" />
+
+        </div>
+        <div class="ml-2">
+
+            <!-- <p-tabView>
+                <p-tabPanel header="Features">
+                    <span [innerText]="selectProduct.productDes"></span>
+                </p-tabPanel>
+                <p-tabPanel header="Details">
+                    your content to be updated!
+                </p-tabPanel>
+
+            </p-tabView> -->
+
+            <p-fieldset legend="Features"
+                        ngClass="h-max"
+                        [toggleable]="false">
+                <!-- Be carefull!!!! when use data binding or {{ just}} -->
+
+                <span [innerText]="selectProduct.productDes"></span>
+
+                <h3>$ {{selectProduct.productPrice}}</h3>
+
+                <div class="flex flex-row-reverse">
+                    <p-button icon="pi pi-shopping-cart"
+                              label="Add to cart"
+                              (onClick)="addToCart()"></p-button>
+                </div>
+
+            </p-fieldset>
+
+        </div>
+    </div>
+</p-fieldset>

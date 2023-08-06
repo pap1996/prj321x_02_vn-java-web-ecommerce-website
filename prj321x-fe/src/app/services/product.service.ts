@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, share } from 'rxjs';
 import { Product, ProductDto } from '../model/product';
 import { Env } from '../environments/env';
 
@@ -14,7 +14,9 @@ export class ProductService {
   page: number = 0;
   rows: number = 6;
 
-  products$: Observable<Product[]> = new Observable();
+  // can when use only subject????
+  productSubject: Subject<ProductDto> = new Subject();
+  products$: Observable<ProductDto> = this.productSubject.asObservable();
 
   constructor(private http: HttpClient) {
     this.getAllProducts();
@@ -23,20 +25,35 @@ export class ProductService {
     });
   }
 
-  getAllProducts(): Observable<ProductDto> {
+  getAllProducts(): void {
     console.log('Get all products!!!');
-    return this.http.get<ProductDto>(Env.serverUrl + Env.FETCH_PRODUCT);
+    this.http
+      .get<ProductDto>(Env.serverUrl + Env.FETCH_PRODUCT_LIST)
+      .subscribe((data) => {
+        this.productSubject.next(data);
+      });
   }
 
-  getSelectedProducts(): Observable<ProductDto> {
+  getSelectedProducts(): void {
     console.log('Get selected products!!!');
-    return this.http.get<ProductDto>(
-      Env.serverUrl +
-        Env.FETCH_PRODUCT +
-        `?page=${this.page}` +
-        `&rows=${this.rows}` +
-        `&category=${this.category}` +
-        `&searchTerm=${this.searchTerm}`
+    console.log('This at the moment:', this);
+    this.http
+      .get<ProductDto>(
+        Env.serverUrl +
+          Env.FETCH_PRODUCT_LIST +
+          `?page=${this.page}` +
+          `&rows=${this.rows}` +
+          `&category=${this.category}` +
+          `&searchTerm=${this.searchTerm}`
+      )
+      .subscribe((data) => {
+        this.productSubject.next(data);
+      });
+  }
+
+  getProductById(productId: string): Observable<Product> {
+    return this.http.get<Product>(
+      Env.serverUrl + Env.FETCH_PRODUCT + `/${productId}`
     );
   }
 }

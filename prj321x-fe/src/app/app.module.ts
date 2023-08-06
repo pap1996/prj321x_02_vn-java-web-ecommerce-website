@@ -9,9 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemlistComponent } from './maincomponents/itemlist/itemlist.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ItemdetailComponent } from './maincomponents/itemdetail/itemdetail.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ItemlistComponent],
+  declarations: [AppComponent, HeaderComponent, ItemlistComponent, ItemdetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

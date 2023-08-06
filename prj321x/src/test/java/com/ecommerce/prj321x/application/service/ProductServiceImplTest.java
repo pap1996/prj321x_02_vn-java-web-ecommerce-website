@@ -35,6 +35,6 @@ public class ProductServiceImplTest {
                 .build());
         Page<Product> productPage = new PageImpl<>(productList);
         when(productRepository.findWithParam(any(), any(), any())).thenReturn(productPage);
-        assertTrue(productService.getProduct(1, 2, "abc", "abc").getProductList().size() == 1);
+        assertTrue(productService.getProductList(1, 2, "abc", "abc").getProductList().size() == 1);
     }
 }

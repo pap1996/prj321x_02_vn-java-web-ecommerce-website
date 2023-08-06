@@ -1,9 +1,9 @@
 import { Product } from './../../model/product';
 import { Observable } from 'rxjs';
 
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { PaginatorState } from 'primeng/paginator/paginator.interface';
-import { DataViewLayoutOptions } from 'primeng/dataview';
+import { DataView, DataViewLayoutOptions } from 'primeng/dataview';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -20,18 +20,20 @@ export class ItemlistComponent {
 
   layout: 'list' | 'grid' = 'grid';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {
+    this.productService.products$.subscribe((productDto) => {
+      console.log('Change log!');
+      this.products = productDto.productList;
+      this.totalRecords = productDto.totalRecords;
+      // this.dataView.value = productDto.productList;
+      // console.log('Dataview data list: ', this.dataView.value);
+    });
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.productService.getAllProducts().subscribe((productDto) => {
-      console.log('Change log!');
-      this.products = productDto.productList;
-      this.totalRecords = productDto.totalRecords;
-    });
-
-    console.log('productList in itemlist component: ', this.products);
+    this.productService.getAllProducts();
   }
 
   onPageChange(event: PaginatorState) {
@@ -41,10 +43,12 @@ export class ItemlistComponent {
 
     this.productService.page = event.page ? event.page : 0;
     this.productService.rows = event.rows ? event.rows : 5;
-    this.productService.getSelectedProducts().subscribe((productDto) => {
-      console.log('Change log!');
-      this.products = productDto.productList;
-      this.totalRecords = productDto.totalRecords;
-    });
+    this.productService.getSelectedProducts();
+
+    // this.productService.products$.subscribe((productDto) => {
+    //   console.log('Change log!');
+    //   this.products = productDto.productList;
+    //   this.totalRecords = productDto.totalRecords;
+    // });
   }
 }
