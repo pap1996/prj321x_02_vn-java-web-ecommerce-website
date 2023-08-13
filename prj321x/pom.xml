@@ -58,6 +58,19 @@
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.5.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -82,6 +95,17 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>7.15.0</version>
+				<configuration>
+					<url>jdbc:mysql://localhost/prj321x</url>
+					<user>phu_admin</user>
+					<password>1234</password>
+				</configuration>
+			</plugin>
         </plugins>
 	</build>
 
