@@ -1,6 +1,6 @@
 import { CartService } from './../../services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem, PrimeIcons } from 'primeng/api';
 import { DropdownChangeEvent } from 'primeng/dropdown';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public selectedCategory: any;
   public categories: any[] = [];
   public searchKeyword: string = '';
@@ -65,5 +65,9 @@ export class HeaderComponent {
     this.productService.searchTerm = this.searchKeyword;
     this.productService.getSelectedProducts();
     this.router.navigate(['']);
+  }
+
+  createOrder() {
+    this.router.navigate(['create-order']);
   }
 }

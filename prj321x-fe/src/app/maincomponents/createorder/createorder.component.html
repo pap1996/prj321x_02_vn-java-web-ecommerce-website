@@ -1,0 +1,177 @@
+<p-fieldset styleClass="mt-3 flex flex-wrap justify-content-center"
+            legend="Order summary"
+            [toggleable]="true">
+
+    <div *ngIf="getTotalItems() == 0">No items selected!</div>
+    <p-table *ngIf="getTotalItems() > 0 "
+             [value]="cartItems"
+             [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th class="text-center">Quantity</th>
+                <th>Amount</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+                     let-item>
+            <tr>
+                <td>{{ item.product.productName }}</td>
+                <td>{{ item.product.productPrice}}</td>
+                <td class="flex flex-row flex-wrap">
+                    <div class="flex align-items-center justify-content-center flex-grow-1">{{ item.quantity }}</div>
+                    <div class="flex flex-row">
+                        <p-button icon="pi pi-plus-circle"
+                                  styleClass="p-button-sm p-button-text"
+                                  (onClick)="addItem($event, item)"></p-button>
+                        <p-button icon="pi pi-minus-circle"
+                                  styleClass="p-button-sm p-button-text"
+                                  (onClick)="minusItem($event, item)"></p-button>
+                        <p-button icon="pi pi-trash"
+                                  styleClass="p-button-sm p-button-text"
+                                  (onClick)="deleteItem($event, item)"></p-button>
+                    </div>
+
+                </td>
+                <td>{{ getAmountOfItem(item) }}</td>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="summary">
+            <div class="flex flex-column align-items-end">
+                <div class="w-4 flex flex-row justify-content-between">
+                    <span>Total items:</span>
+                    <span>{{getTotalItems()}}</span>
+                </div>
+
+                <div class="w-4 flex flex-row justify-content-between">
+                    <span>Total amount:</span>
+                    <span>{{getTotalOrderAmount()}} </span>
+
+                </div>
+
+            </div>
+        </ng-template>
+
+    </p-table>
+</p-fieldset>
+<form [formGroup]="orderForm">
+    <p-fieldset *ngIf="getTotalItems() > 0"
+                styleClass="mt-3"
+                legend="Customer summary"
+                [toggleable]="true">
+
+        <div class="flex flex-row">
+            <div class="flex-grow-1">
+
+                <div class="card flex w-12">
+                    <div class="flex flex-column w-12 justify-content-start gap-2">
+                        <label htmlFor="customerName">Name</label>
+                        <input pInputText
+                               [ngClass]="{'ng-invalid ng-dirty': customerName.invalid && (customerName.touched || customerName.dirty)}"
+                               id="customerName"
+                               formControlName="customerName" />
+                        <small *ngIf="customerName.invalid && (customerName.touched || customerName.dirty)"
+                               id="customerName-help">Customer name required!</small>
+
+
+
+                        <label htmlFor="phoneNumber">Phone number</label>
+                        <input pInputText
+                               [ngClass]="{'ng-invalid ng-dirty': phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)}"
+                               id="phoneNumber"
+                               formControlName="phoneNumber" />
+                        <small *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)"
+                               id="phoneNumber-help">Phone number required!</small>
+
+
+                        <label htmlFor="discount">Discount Code</label>
+                        <p-chips [allowDuplicate]="false"
+                                 id="discount"
+                                 aria-describedby="discount-help"
+                                 formControlName="discountCode"
+                                 (onAdd)="checkAvailableCode($event)"></p-chips>
+                        <small *ngIf="discountCode.invalid && (discountCode.touched || discountCode.dirty)"
+                               id="discount-help">Invalid discount code</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p-divider layout="vertical"></p-divider>
+
+            <div class="flex-grow-1">
+                <div class="card flex w-12">
+                    <div class="flex flex-column w-12 justify-content-start gap-2">
+                        <label htmlFor="customerAddress">Detail Address</label>
+                        <input pInputText
+                               id="customerDetailAddress"
+                               [ngClass]="{'ng-invalid ng-dirty': customerDetailAddress.invalid && (customerDetailAddress.touched || customerDetailAddress.dirty)}"
+                               formControlName="customerDetailAddress" />
+                        <small *ngIf="customerDetailAddress.invalid && (customerDetailAddress.touched || customerDetailAddress.dirty)"
+                               id="customerDetailAddress-help">Address required!</small>
+
+
+
+                        <label htmlFor="addressProvince">Province</label>
+                        <p-dropdown id="addressProvince"
+                                    [options]="provinces"
+                                    [filter]=true
+                                    formControlName="addressProvince"
+                                    placeholder="Select a province"
+                                    optionLabel="province"
+                                    optionValue="code"
+                                    (onChange)="retrieveDistrict($event)"
+                                    [showClear]=false></p-dropdown>
+
+
+                        <label htmlFor="addressDistrict">District</label>
+                        <p-dropdown id="addressDistrict"
+                                    [options]="selectedProvince.addressDistricts"
+                                    [filter]=true
+                                    formControlName="addressDistrict"
+                                    placeholder="Select a district"
+                                    optionLabel="district"
+                                    optionValue="code"
+                                    (onChange)="retrieveWard($event)"
+                                    [showClear]=false></p-dropdown>
+
+
+                        <label htmlFor="addressWard">Ward</label>
+                        <p-dropdown id="addressWard"
+                                    [options]="wards"
+                                    [filter]=true
+                                    formControlName="addressWard"
+                                    placeholder="Select a ward"
+                                    optionLabel="ward"
+                                    optionValue="code"
+                                    [showClear]=false></p-dropdown>
+
+                        <p-button icon="pi pi-iconName"
+                                  label="Check out"></p-button>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </p-fieldset>
+</form>

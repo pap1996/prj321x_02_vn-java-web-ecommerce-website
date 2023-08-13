@@ -13,6 +13,9 @@ import { TagModule } from 'primeng/tag';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TabViewModule } from 'primeng/tabview';
 import { BadgeModule } from 'primeng/badge';
+import { TableModule } from 'primeng/table';
+import { DividerModule } from 'primeng/divider';
+import { ChipsModule } from 'primeng/chips';
 
 @NgModule({
   declarations: [],
@@ -31,6 +34,9 @@ import { BadgeModule } from 'primeng/badge';
     FieldsetModule,
     TabViewModule,
     BadgeModule,
+    TableModule,
+    DividerModule,
+    ChipsModule,
   ],
   exports: [
     CommonModule,
@@ -47,6 +53,9 @@ import { BadgeModule } from 'primeng/badge';
     FieldsetModule,
     TabViewModule,
     BadgeModule,
+    TableModule,
+    DividerModule,
+    ChipsModule,
   ],
 })
 export class PrimengModule {}

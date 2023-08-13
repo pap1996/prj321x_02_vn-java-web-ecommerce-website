@@ -10,9 +10,19 @@ import { ItemlistComponent } from './maincomponents/itemlist/itemlist.component'
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemdetailComponent } from './maincomponents/itemdetail/itemdetail.component';
+import { CreateorderComponent } from './maincomponents/createorder/createorder.component';
+import { CartService } from './services/cart.service';
+import { DiscountcodeService } from './services/discountcode.service';
+import { AddressService } from './services/address.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ItemlistComponent, ItemdetailComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    ItemlistComponent,
+    ItemdetailComponent,
+    CreateorderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +32,7 @@ import { ItemdetailComponent } from './maincomponents/itemdetail/itemdetail.comp
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, CartService, DiscountcodeService, AddressService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
